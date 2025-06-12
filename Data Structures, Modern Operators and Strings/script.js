@@ -21,3 +21,29 @@
 // name conversion working �
 // § This challenge is difficult on purpose, so start watching the solution in case
 // you're stuck. Then pause and continue!
+
+const input = `
+underscore_case
+ first_name
+Some_Variable
+  calculate_AGE
+delayed_departure
+`;
+
+const lines = input.trim().split("\n");
+
+for (let [i, line] of lines.entries()) {
+  const trimmed = line.trim().toLowerCase();
+
+  const parts = trimmed.split("_");
+
+  const camelCase = parts
+    .map((part, index) =>
+      index === 0 ? part : part[0].toUpperCase() + part.slice(1)
+    )
+    .join("");
+
+  const padded = camelCase.padEnd(20);
+  const checks = "✅".repeat(i + 1);
+  console.log(`${padded}${checks}`);
+}
