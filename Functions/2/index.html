@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thinking Challenge</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+
+    <script>
+        (function () {
+            const header = document.querySelector('h1');
+            header.style.color = 'red';
+
+            // 1. Attach an event listener to the body
+            // This callback function is created now, but will only execute later when the body is clicked.
+            document.body.addEventListener('click', function () {
+                // Because of a closure, this function still has access to the 'header' variable
+                // from its parent scope, even after the parent function has already executed.
+                header.style.color = 'blue';
+            });
+        })();
+    </script>
+</body>
+
+</html>
